@@ -54,9 +54,15 @@ $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root'
     while($chambre=$recupartcl->fetch()){
         ?>
         <div class="chambre">
-            <p>type de chambre : <?= $chambre['type-ch'] ?></p>
-        </a>
-            
+        <label for="chambres">Type de chambre :</label><br> 
+        <input list="chambres" name="chambres"> 
+        <datalist id="chambres"> 
+              <option value="<?= $chambre['type-ch'] ?>"> 
+              <option value="Lily"> 
+              <option value="Tulip"> 
+              <option value="Daffodil"> 
+              <option value="Orchid"> 
+        </datalist>     
         </div>
         <?php
     }
@@ -66,5 +72,5 @@ $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root'
 <div class="footer">
 
 </div>
-    </body>
+</body>
 </html>

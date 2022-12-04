@@ -418,6 +418,142 @@ ul li a:hover{
 .chambre{
     text-align: center;
     margin-top: 6%;
-    margin-left: 1%;
+    margin-left: -80%;
     
+}
+.adm-main{
+    background: url(4.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    padding-top: 13%;
+}
+.adm-main p{
+    margin-top: -8%;
+    margin-left: 42%;
+    color: #ff0000;
+}
+.admin{
+    display: block;
+    border-radius: 10px;
+    margin-left: 40%;
+    padding: 2% 0%;
+    border: 1.5px solid rgb(0, 119, 255);
+    background-color: rgba(240, 248, 255, 0.758);
+    width: 25%;
+    text-align: center;
+    position: absolute;
+}
+.admin input{
+    margin-bottom: 3%;
+}
+.admin input[type="text"]{
+    margin-left: 1rem;
+}
+.admin input[type="submit"]{
+    margin-left: 12%;
+    padding: 0.1rem 0.5rem;
+    margin-top: 3%;
+    color: aliceblue;
+    border: 1.5px solid #fff;
+    background-color: rgb(16, 66, 248);
+    border-radius: 8px;
+}
+.index{
+    width: 100%;
+    height: 100vh;
+    background: url(4.jpg);
+    background-size: cover;
+}
+.parametres{
+    color: rgb(10, 103, 243);
+    width: 30%;
+    height: 94vh;
+    background-color: aliceblue;
+    text-align: center;
+    padding-top: 3%;
+    border-right:2.5px solid rgb(249, 252, 255);
+}
+.parametres h1{
+    border: 2px solid rgb(8, 131, 254);
+    background-color: #fff;
+    border-radius: 10px;
+}
+.parametres a{
+    text-decoration: none;
+    color: rgb(10, 103, 243);
+    font-size: 25px;
+    margin-bottom: 10%;
+    margin-left: 0%;
+}
+.desc{
+    width: 70%;
+    float: right;
+    margin-top: -40%;
+}
+.frm{
+    background-color: aliceblue;
+    width: 470px;
+    margin-left: 25%;
+    padding: 0.5rem;
+    text-align: center;
+    border: 1.5px solid rgb(10, 103, 243);
+    border-radius: 20px;
+}
+.desc textarea{
+    margin-left: 30%;
+    border-radius: 20px;
+    text-align: start;
+    padding: 0.8rem;
+    border: 1.8px solid rgb(10, 103, 243);
+    background-color: aliceblue;
+}
+.desc label{
+    
+    font-size: 20px;
+}
+.subm,.subm1{
+    color: white;
+    border:2px solid #fff;
+    border-radius: 10px;
+    background-color: rgb(10, 103, 243);
+    margin-left: 50%;
+    padding: 0.2rem 1rem;
+}
+.subm1{
+    margin-top: 85%;
+    margin-left: 10%;
+}
+.desc h2{
+    margin-left: 45%;
+    margin-top: -3%;
+    margin-bottom: 2%;
+    color: rgb(8, 131, 254);
+}
+.desc p{
+    margin-left: 15%;
+    font-size: 20px;
+}
+
+.Description{
+    border:2px solid rgb(10, 103, 243);
+    border-radius: 10px;
+    background-color: aliceblue;
+    padding: 1rem;
+    width: 50%;
+    margin-left: 25%;
+}
+.hotel{
+    text-align: center;
+    border:2px solid rgb(10, 103, 243);
+    border-radius: 10px;
+    background-color: aliceblue;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 50%;
+    margin-left: 25%;
+}
+.hotel p{
+    margin-left: -15%;
+    font-size: 25px;
 }
