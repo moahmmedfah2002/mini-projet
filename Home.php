@@ -50,7 +50,25 @@ $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root'
     </div>
 <div class="bod">
     <a href="mailto:youssafouhba@gmail.com"></a>
-    <a href="chambres.php">Liste des chambres</a>
+    <?php
+    $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+    $recupartcl = $bdd->query('SELECT * FROM chambre');
+    while($chambre=$recupartcl->fetch()){
+        ?>
+        <div class="chambre">
+        <label for="chambres">Type de chambre :</label><br> 
+        <input list="chambres" name="chambres"> 
+        <datalist id="chambres"> 
+              <option value="<?= $chambre['type-ch'] ?>"> 
+              <option value="Lily"> 
+              <option value="Tulip"> 
+              <option value="Daffodil"> 
+              <option value="Orchid"> 
+        </datalist>     
+        </div>
+        <?php
+    }
+    ?>
 </div>
 <div class="footer">
 
