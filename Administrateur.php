@@ -1,27 +1,34 @@
-<<<<<<< HEAD
 <?php
 session_start();
 $err = "";
-try{
-    $bdd=new PDO('mysql:host=localhost:5000;dbname=espace_membre;charset=utf8;','root','');
-}
-catch (Exception $e){
-    die('Erreur :'.$e->getMessage());
-}
-
+$bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+$z=$bdd->prepare('SELECT * FROM emp');
+$z->execute();
+$z = $z->fetchAll();
 if(isset($_POST['Entrer'])){
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
-        $pseudo_pardefaut="admin";
-        $mdp_pardefaut="admin1234";
-
-        $pseudo_saisie=htmlspecialchars($_POST['pseudo']);
+    if(!empty($_POST['id_emp']) AND !empty($_POST['mdp'])){
+       $v=0;
+       for($i=0;$i<count($z);$i++){
+        
+        $pseudo_saisie=htmlspecialchars($_POST['id_emp']);
         $mdp_saisie=htmlspecialchars($_POST['mdp']);
 
-        if($pseudo_saisie == $pseudo_pardefaut AND $mdp_saisie==$mdp_pardefaut){
+        if($pseudo_saisie ==$z[$i]['id_emp'] AND $mdp_saisie==$z[$i]['pass']){
             $_SESSION['mdp']=$mdp_saisie;
-            header('Location: index.php');
-
-        }else{
+            $v=1;
+            switch($z[$i]['post']){
+                    case 'admin_infra':
+                        header('Location: admin_infra_strctr.php');
+                        break;
+                    case 'directeur':
+                        header('Location:hotel_directeur.php');
+                    case 'admin_actvt_srvs':
+                        header('Location: admin_actvt_srvs.php');
+                    
+            }
+           
+        }
+        }if($v==0){
             $err= "mot de passe ou pseudo incorrect";
         }
     }else{
@@ -32,6 +39,9 @@ if(isset($_POST['Entrer'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,65 +52,12 @@ if(isset($_POST['Entrer'])){
     <div class="adm-main">
         <p><?= $err; ?></p><br>
       <form method="POST" class="admin" >
-        <label for="pseudo">Pseudo :</label>
-        <input type="text" name="pseudo" autocomplete="off"><br>
+      <label for="id_emp">Id_emp :</label>
+        <input type="number" name="id_emp" autocomplete="off"><br>
         <label for="mdp">Password :</label>
         <input type="password" name="mdp" autocomplete="off"><br>
         <input type="submit" name="Entrer" value="Entrer">
       </form>
     </div>
 </body>
-=======
-<?php
-session_start();
-$err = "";
-try{
-    $bdd=new PDO('mysql:host=localhost:5000;dbname=espace_membre;charset=utf8;','root','');
-}
-catch (Exception $e){
-    die('Erreur :'.$e->getMessage());
-}
-
-if(isset($_POST['Entrer'])){
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
-        $pseudo_pardefaut="admin";
-        $mdp_pardefaut="admin1234";
-
-        $pseudo_saisie=htmlspecialchars($_POST['pseudo']);
-        $mdp_saisie=htmlspecialchars($_POST['mdp']);
-
-        if($pseudo_saisie == $pseudo_pardefaut AND $mdp_saisie==$mdp_pardefaut){
-            $_SESSION['mdp']=$mdp_saisie;
-            header('Location: index.php');
-
-        }else{
-            $err= "mot de passe ou pseudo incorrect";
-        }
-    }else{
-        $err="veuillez completer toutes les champs...";
-    }
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>connexion-admin</title>
-</head>
-<body>
-    <div class="adm-main">
-        <p><?= $err; ?></p><br>
-      <form method="POST" class="admin" >
-        <label for="pseudo">Pseudo :</label>
-        <input type="text" name="pseudo" autocomplete="off"><br>
-        <label for="mdp">Password :</label>
-        <input type="password" name="mdp" autocomplete="off"><br>
-        <input type="submit" name="Entrer" value="Entrer">
-      </form>
-    </div>
-</body>
->>>>>>> 5057b6559e3f4e07be0f2ca162803d4e8b47f059
 </html>

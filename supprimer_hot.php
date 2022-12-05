@@ -15,7 +15,7 @@ if(!$_SESSION['mdp']){
             $banniruser = $bdd->prepare('DELETE FROM hotel WHERE id_h = ?');
             $banniruser->execute(array($getid));
     
-            header('Location: hotel.php');
+            header('Location: admin_infra_strctr.php');
     
         }else{
             echo "Acun membre n'a ete trouve";

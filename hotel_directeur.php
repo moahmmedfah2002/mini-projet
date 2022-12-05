@@ -18,16 +18,11 @@ if(!$_SESSION['mdp']){
         <div class="parametres">
             <h1>Paramétres de site web</h1>
             <br>
-            <a href="membres.php">Liste des membres .</a>
-            <br>
-            <a href="Description.php">Description de site web.</a>
-            <br>
-            <a href="hotel-chambre.php">Hoteles et Chambres .</a>
-            <br>
+            
+           
             <a href="hotel.php">Hoteles .</a>
             <br>
-            <a href="bungalos.php">BUngalos .</a>
-            <br>
+            
             <a href="logout.php"><input type="submit" value="Deconnexion" class="subm1"></a>
         </div>
     </div>

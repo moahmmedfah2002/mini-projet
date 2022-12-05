@@ -5,10 +5,10 @@ if(!$_SESSION['mdp']){
     header('Location: Administrateur.php');
 }
 if(isset($_POST['Ajouter'])){
-    if(!empty($_POST['type']) AND !empty($_POST['prix']) AND !empty($_POST['equip'])){
+    if(!empty($_POST['type']) AND !empty($_POST['prix']) AND !empty($_POST['equip'])AND !empty($_POST['num_b'])){
         $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
-        $insert = $bdd->prepare('INSERT INTO bang(type,prix,equipement) VALUES(?,?,?)');
-        $insert->execute(array($_POST['type'],$_POST['prix'],$_POST['equip']));
+        $insert = $bdd->prepare('INSERT INTO bang(num_b,type,prix,equipement) VALUES(?,?,?,?)');
+        $insert->execute(array($_POST['num_b'],$_POST['type'],$_POST['prix'],$_POST['equip']));
         header('Location: bungalos.php');
     }else{
         $err="veuillez completer toutes les champs...";
@@ -30,15 +30,9 @@ if(isset($_POST['Ajouter'])){
         <div class="parametres">
             <h1>Paramétres de site web</h1>
             <br>
-            <a href="membres.php">Liste des membres .</a>
-            <br>
-            <a href="Description.php">Description de site web.</a>
-            <br>
-            <a href="hotel.php">Hoteles .</a>
+            <a href="admin_infra_strctr.php">Hoteles .</a>
             <br>
             <a href="bungalos.php">BUngalos .</a>
-            <br>
-            <a href="Admin_actvt_srvs.php">Activite & Services .</a>
             <br>
             <a href="logout.php"><input type="submit" value="Deconnexion" class="subm1"></a>
         </div>
@@ -60,7 +54,10 @@ if(isset($_POST['Ajouter'])){
                 <label for="equip">Equipement : </label>
                 <p><?= $user['equipement'];?></p>
                 <br>
-           <a href="supprimer_bung.php?id=<?= $user['num_b'];?>"><input type="submit" value="Supprimper"  style="color: red;text-decoration: none;"></a>
+                <label for="num_b">N°: </label>
+                <p><?= $user['num_b'];?></p>
+                <br>
+           <a href="modefier_bung.php?id=<?= $user['num_b'];?>"><input type="submit" value="modifie"  style="color: #AAAAAA;text-decoration: none;"></a>
            </div>
            <?php
           } 
