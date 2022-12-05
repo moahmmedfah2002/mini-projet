@@ -40,14 +40,6 @@ if(isset($_POST['Ajouter'])){
         <div class="parametres">
             <h1>Paramétres de site web</h1>
             <br>
-            <a href="membres.php">Liste des membres .</a>
-            <br>
-            <a href="Description.php">Description de site web.</a>
-            <br>
-            <a href="hotel.php">Hoteles .</a>
-            <br>
-            <a href="bungalos.php">BUngalos .</a>
-            <br>
             <a href="Admin_actvt_srvs.php">Activite & Services .</a>
             <br>
             <a href="logout.php"><input type="submit" value="Deconnexion" class="subm1"></a>
@@ -65,6 +57,7 @@ if(isset($_POST['Ajouter'])){
                 <p><?= $user['type_actvt'];?></p>
                 <br>
            <a href="supprimer_actvt.php?id=<?= $user['id_actvt'];?>"><input type="submit" value="Supprimper"  style="color: red;text-decoration: none;"></a>
+           <a href="modifierer_actvt.php?id=<?= $user['id_actvt'];?>"><input type="submit" value="Modifier"  style="color: red;text-decoration: none;"></a>
            </div>
            <?php
           } 
