@@ -99,10 +99,10 @@ if(isset($_POST['Ajouter'])){
             <?php
             $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
             $recupuser = $bdd->query('SELECT * FROM hotel');
+            
             $i=0;
-           
             while($user = $recupuser->fetch()){
-               
+                
 
                 if(isset($_GET['supprimer'])){
                     $getid = $user["id_h"];
@@ -121,7 +121,6 @@ if(isset($_POST['Ajouter'])){
                     }
                 
                 }
-               
 
 
                 
@@ -140,11 +139,8 @@ if(isset($_POST['Ajouter'])){
                 <p><?= $user['nombre_ch'];?></p>
                 <br>
                 
-           <form methode="POST" ><input  type="submit"  name="supprimer" value="supprimer"  style="color: #AAAAAA;text-decoration: none;"></form>
- 
-
-           
-           <form methode="POST" ><input  name="modifie" type="submit" value="modifie<?=$i;?>"  style="color: #AAAAAA;text-decoration: none;"></form>
+           <form methode="POST"><input type="submit"  name="supprimer" value="supprimer"  style="color: #AAAAAA;text-decoration: none;"></form>
+                
            <form method="POST" id="f<?=$i;?>"    >
                 <h4>Modefier un HOTEL</h4>
                 
@@ -166,54 +162,29 @@ if(isset($_POST['Ajouter'])){
                 <br>
                 <input type="submit" value="Valider" class="subm" name="modefier">
             </form>
-            <?php
-            if($_GET['modifie']=="modifie<?=$i;?>"){
-                    ?>
-                    <script>
-                            var a=document.getElementById("f<?=$i;?>");
-                            a.style.display="block";
-                            console.log("hi");
-                            
-                    </script>
-                    
-                <?php
-                  
 
-                }else{?>
-                    <script>
-                    var a=document.getElementById("f<?=$i;?>");
-                    a.style.display="block";
-                    console.log("hi");
-                    
-            </script>
-            <?php  
-                }?>
+           
+           <button id="p<?=$i;?>" onclick="b<?=$i;?>()">modifie</form></button>
+            
            <script>
                  
                    
                
               
-               function b(){
+               function b<?=$i;?>(){
                     var a=document.getElementById("f<?=$i;?>");
-                    var p=document.getElementById("p<?=$i;?>");
-                    if(a.style.display=="none" && p.value==p<?=$i;?>){
-                  
-                   a.style.display="block";
-                   
-                }else{
-                    a.style.display="none";
-                    
-
-                   }
+                    console.log(a.style.display);
+                    if (a.style.display === 'none') {
+                        a.style.display = 'block';
+                    } else {
+                        a.style.display = 'none';
+                    }
                }
 
            </script>
            
           
-            <script>
-             var a =document.getElementById("f<?=$i;?>");
-               a.style.display="none";
-           </script>
+           
 
            </div>
            <?php
