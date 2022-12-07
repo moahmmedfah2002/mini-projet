@@ -11,7 +11,7 @@
     background-position: center;
     background-image: url(7.jpg);
     background-size: cover;
-    height: 120vh;
+    height: 220vh;
 }
 
 .main1{
@@ -422,6 +422,7 @@ ul li a:hover{
     
 }
 .adm-main{
+    
     background: url(4.jpg);
     background-size: cover;
     width: 100%;
@@ -435,21 +436,33 @@ ul li a:hover{
 }
 .admin{
     display: block;
-    border-radius: 10px;
-    margin-left: 40%;
-    padding: 2% 0%;
+    border-radius: 40px;
+    margin-top: 5%;
+    margin-left: 35%;
+    padding: 10% ;
     border: 1.5px solid rgb(0, 119, 255);
     background-color: rgba(240, 248, 255, 0.758);
-    width: 25%;
+    width: 500px;
+    height: 400px;
     text-align: center;
-    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    
+    
+}
+#f{
+    display: none;
 }
 .admin input{
+    align-items: center;
     margin-bottom: 3%;
+    
 }
 .admin input[type="text"]{
-    margin-left: 1rem;
+    background-color: aliceblue;
+    box-shadow: brown 5px 5px 5px 5px;
+
 }
+
 .admin input[type="submit"]{
     margin-left: 12%;
     padding: 0.1rem 0.5rem;
@@ -458,17 +471,23 @@ ul li a:hover{
     border: 1.5px solid #fff;
     background-color: rgb(16, 66, 248);
     border-radius: 8px;
+
 }
+.admin input[type="submit"]:hover{
+    background-color: rgba(6, 134, 91, 0.63);
+
+}
+
 .index{
     width: 100%;
-    height: 100vh;
     background: url(4.jpg);
     background-size: cover;
+    display: flex;
 }
+
 .parametres{
     color: rgb(10, 103, 243);
     width: 30%;
-    height: 94vh;
     background-color: aliceblue;
     text-align: center;
     padding-top: 3%;
@@ -489,7 +508,7 @@ ul li a:hover{
 .desc{
     width: 70%;
     float: right;
-    margin-top: -40%;
+    
 }
 .frm{
     background-color: aliceblue;
@@ -526,7 +545,7 @@ ul li a:hover{
 }
 .desc h2{
     margin-left: 45%;
-    margin-top: -3%;
+    
     margin-bottom: 2%;
     color: rgb(8, 131, 254);
 }

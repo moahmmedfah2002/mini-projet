@@ -7,7 +7,7 @@ if(!$_SESSION['mdp']){
 
 if(isset($_POST['Ajouter'])){
     if(!empty($_POST['categorie'])AND !empty($_POST['adresse'])AND!empty($_POST['nbr_ch'])AND!empty($_POST['numch'])){
-        $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+        $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
         $insert = $bdd->prepare('INSERT INTO hotel(adress_h,nombre_ch,categorie,numch) VALUES(?,?,?,?)');
         $insert->execute(array($_POST['adresse'],$_POST['nbr_ch'],$_POST['categorie'],$_POST['numch']));
         header('Location: hotel.php');
@@ -45,7 +45,7 @@ if(isset($_POST['Ajouter'])){
             <h5 style="margin-left: 20%; color: crimson;"><?=  $err; ?></h5>
             <h2>Hoteles</h2>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+            $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
             $recupuser = $bdd->query('SELECT * FROM hotel');
             while($user = $recupuser->fetch()){
            ?>

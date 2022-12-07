@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd=new PDO('mysql:host=localhost:5000;dbname=espace_admine;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=espace_admine;charset=utf8;','root','');
 ?>
 
 <!DOCTYPE html>

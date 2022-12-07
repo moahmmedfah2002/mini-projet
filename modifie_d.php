@@ -1,6 +1,6 @@
 <?php
 
-$bdd=new PDO('mysql:host=localhost:5000;dbname=espace_admine;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=espace_admine;charset=utf8;','root','');
 
     $getid = $_GET['id'];
     $recup_article = $bdd->prepare('SELECT * FROM description WHERE id = ?');

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $err = "";
-$bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
 if(!$_SESSION['mdp']){
     header('Location: Administrateur.php');
 }
@@ -42,7 +42,7 @@ if(isset($_POST['Ajouter'])){
             <h5 style="margin-left: 20%; color: crimson;"><?=  $err; ?></h5>
             <h2>Hotel & Chambres.</h2>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+            $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
             $recupuser = $bdd->query('SELECT * FROM hotel');
             $rescupch = $bdd->query('SELECT * FROM hotel,chambre WHERE hotel.numch=chambre.numch');
             while($user = $recupuser->fetch()){

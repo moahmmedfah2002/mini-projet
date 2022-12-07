@@ -1,7 +1,7 @@
 <?php
 session_start();
 $bienveneu ="Bienveneu sur votre compte!"; 
-$bdd=new PDO('mysql:host=localhost:5000;dbname=espace_membre;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=espace_membre;charset=utf8;','root','');
 $getnom ="";
 $getprenom = "";
 $get_email= "";

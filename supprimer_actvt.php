@@ -6,7 +6,7 @@ if(!$_SESSION['mdp']){
 }
 
     if(isset($_GET['id']) AND !empty($_GET['id'])){
-        $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+        $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
         $getid = $_GET['id'];
         $recupuser = $bdd->prepare('SELECT * FROM actvt WHERE id_actvt= ?');
         $recupuser->execute(array($getid));

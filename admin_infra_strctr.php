@@ -1,7 +1,7 @@
 <?php
 session_start();
 $err = "";
-$bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
 $z=$bdd->prepare('SELECT * FROM emp');
 $z->execute();
 $z = $z->fetchAll();
@@ -30,7 +30,7 @@ if(isset($_POST['Entrer'])){
 }
 if(isset($_POST['Ajouter'])){
     if(!empty($_POST['categorie'])AND !empty($_POST['adresse'])AND!empty($_POST['nbr_ch'])AND!empty($_POST['nom_h'])){
-        $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+        
         $vh = 1;
         for ($j = 0; $j < count($h); $j++) {
                 if ($h[$j]['nom_h']==$_POST['nom_h']){
@@ -62,6 +62,7 @@ if(isset($_POST['Ajouter'])){
     <title>connexion-admin</title>
 </head>
 <body>
+
 <div class="index">
 <div class="parametres">
             <h1>Paramétres de site web</h1>
@@ -76,7 +77,7 @@ if(isset($_POST['Ajouter'])){
             <h5 style="margin-left: 20%; color: crimson;"><?=  $err; ?></h5>
             <h2>Hoteles</h2>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+            
             $recupuser = $bdd->query('SELECT * FROM hotel');
             while($user = $recupuser->fetch()){
            ?>
@@ -87,7 +88,7 @@ if(isset($_POST['Ajouter'])){
                 <label>Categorie :</label>
                 <p><?= $user['categorie'];?></p>
                 <br>
-                <label>Eddresse : </label>
+                <label>Addresse : </label>
                 <p><?= $user['adress_h'];?></p>
                 <br>
                 <label>Nombre de chambres : </label>
@@ -100,7 +101,7 @@ if(isset($_POST['Ajouter'])){
           ?>
           <form method="POST" class="frm">
                 <h4>Ajouter un Hotel</h4>
-                <label for="nom_h">categorie : </label>
+                <label for="nom_h">Nom hotel : </label>
                 <input type="text" name="nom_h" style="width: 200px;height: 20px;">
                 <br>
                 <label for="categorie">categorie : </label>
@@ -115,8 +116,9 @@ if(isset($_POST['Ajouter'])){
                 <input type="submit" value="Ajouter" class="subm" name="Ajouter">
             </form>
         </div>
+        </div>
+</div>   
 </div>
-
               
 </body>
 </html>

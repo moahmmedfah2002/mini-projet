@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root'
         <div class="content">
             <h1>Description</h1>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=espace_admine;charset=utf8;','root','');
+            $bdd=new PDO('mysql:host=localhost:3306;dbname=espace_admine;charset=utf8;','root','');
             $recupartcl = $bdd->query('SELECT * FROM description');
             while($artcl=$recupartcl->fetch()){
             ?>

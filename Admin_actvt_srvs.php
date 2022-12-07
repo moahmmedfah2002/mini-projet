@@ -1,12 +1,13 @@
 <?php
 session_start();
+$bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
 $err = "";
 if(!$_SESSION['mdp']){
     header('Location: Administrateur.php');
 }
 if(isset($_POST['Ajouter'])){
     if(!empty($_POST['type_actvt'])){
-        $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+        $bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
         $insert = $bdd->prepare('INSERT INTO actvt(type_actvt) VALUES(?)');
         $insert->execute(array($_POST['type_actvt']));
         header('Location: Admin_actvt_srvs.php');
@@ -16,7 +17,7 @@ if(isset($_POST['Ajouter'])){
 }
 if(isset($_POST['Ajouter'])){
     if(!empty($_POST['type_serv'])AND !empty($_POST['tarif'])){
-        $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+        
         $insert = $bdd->prepare('INSERT INTO service(type_serv,tarif) VALUES(?,?)');
         $insert->execute(array($_POST['type_serv'],$_POST['tarif']));
         header('Location: Admin_actvt_srvs.php');
@@ -48,7 +49,7 @@ if(isset($_POST['Ajouter'])){
             <h5 style="margin-left: 20%; color: crimson;"><?=  $err; ?></h5>
             <h2>Activité</h2>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+            
             $recupuser = $bdd->query('SELECT * FROM actvt');
             while($user = $recupuser->fetch()){
            ?>
@@ -64,7 +65,7 @@ if(isset($_POST['Ajouter'])){
           ?>
           <h2>Service</h2>
             <?php
-            $bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+           
             $recupuser = $bdd->query('SELECT * FROM service');
             while($user = $recupuser->fetch()){
            ?>

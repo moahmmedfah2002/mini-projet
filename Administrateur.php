@@ -1,7 +1,7 @@
 <?php
 session_start();
 $err = "";
-$bdd=new PDO('mysql:host=localhost:5000;dbname=mini_projet;charset=utf8;','root','');
+$bdd=new PDO('mysql:host=localhost:3306;dbname=m;charset=utf8;','root','');
 $z=$bdd->prepare('SELECT * FROM emp');
 $z->execute();
 $z = $z->fetchAll();
@@ -22,8 +22,13 @@ if(isset($_POST['Entrer'])){
                         break;
                     case 'directeur':
                         header('Location:hotel_directeur.php');
+                        break;
                     case 'admin_actvt_srvs':
                         header('Location: admin_actvt_srvs.php');
+                        break;
+                    default:
+                        $err= "mot de passe ou pseudo incorrect";
+                        break;
                     
             }
            
